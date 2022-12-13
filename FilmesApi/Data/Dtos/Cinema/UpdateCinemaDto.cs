@@ -1,9 +1,4 @@
-﻿using FilmesAPI.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace FilmesAPI.Data.Dtos
 {
@@ -11,5 +6,7 @@ namespace FilmesAPI.Data.Dtos
     {
         [Required(ErrorMessage = "O campo de nome é obrigatório")]
         public string Nome { get; set; }
+        public int EnderecoID { get; set; }
+        public int GerenteID { get; set; }
     }
 }
