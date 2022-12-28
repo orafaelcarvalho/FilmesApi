@@ -2,6 +2,7 @@
 using FluentResults;
 using UsuariosApi.Data.Dtos;
 using UsuariosApi.Services;
+using UsuariosApi.Data.Requests;
 
 namespace UsuariosApi.Controllers
 {
@@ -21,7 +22,15 @@ namespace UsuariosApi.Controllers
         {
             Result resultado = _cadastroService.CadastraUsuario(createDto);
             if (resultado.IsFailed) return StatusCode(500);
-            return Ok();
+            return Ok(resultado.Successes);
+        }
+
+        [HttpPost("/Ativa")]
+        public IActionResult AtivaContaUsuario(AtivaContaRequest request)
+        {
+            Result resultado = _cadastroService.AtivaContaUsuario(request);
+            if (resultado.IsFailed) return StatusCode(500);
+            return Ok(resultado.Successes);
         }
     }
 }
